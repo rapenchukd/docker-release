@@ -77,6 +77,16 @@ properties:
   log_level:
     description: "Set the logging level (debug, info, warn, error, fatal)"
     default: "info"
+  log_opt_labels:
+    description: "Logging driver: A comma-separated list of logging-related labels this daemon accepts. Used for advanced log tag options"
+  log_opt_max_file:
+    description: "Logging driver: The maximum number of log files that can be present. If rolling the logs creates excess files, the oldest file is removed"
+    default: 1
+  log_opt_max_size:
+    description: "Logging driver: The maximum size of the log before it is rolled. A positive integer plus a modifier representing the unit of measure (k, m, or g)"
+    default: -1
+  log_opt_env:
+    description: "Logging driver: A comma-separated list of logging-related environment variables this daemon accepts. Used for advanced log tag options"
   labels:
     description: "Array of key=value labels for the daemon"
   mtu:
