@@ -102,6 +102,26 @@ export DOCKER_IPV6="--ipv6=<%= p('ipv6') %>"
 # Set the logging level
 export DOCKER_LOG_LEVEL="--log-level=<%= p('log_level') %>"
 
+# Set the logging driver labels
+<% if_p('log_opt_labels') do |log_opt_labels| %>
+export DOCKER_LOG_OPT_LABELS="--log-opt labels=<%= p('log_opt_labels') %>"
+<% end %>
+
+# Set the logging driver max file count
+<% if_p('log_opt_max_file') do |log_opt_max_file| %>
+export DOCKER_LOG_OPT_MAX_FILE="--log-opt max-file=<%= p('log_opt_max_file') %>"
+<% end %>
+
+# Set the logging diver log max size
+<% if_p('log_opt_max_size') do |log_opt_max_size| %>
+export DOCKER_LOG_OPT_MAX_SIZE="--log-opt max-size=<%= p('log_opt_max_size') %>"
+<% end %>
+
+# Set the logging driver environment
+<% if_p('log_opt_env') do |log_opt_env| %>
+export DOCKER_LOG_OPT_ENV="--log-opt env=<%= p('log_opt_env') %>"
+<% end %>
+
 <% if_p('labels') do |labels| %>
 <% labels_list = labels.map { |label| "--label=#{label}" }.join(' ') %>
 # Array of key=value labels for the daemon
